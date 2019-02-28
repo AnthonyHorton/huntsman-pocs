@@ -12,8 +12,9 @@ from huntsman.utils.pyro import run_camera_server
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("--ns_host", help="hostname or IP address of the name server")
     parser.add_argument("--ignore_local",
                         help="ignore pyro_camera_local.yaml config file",
                         action="store_true")
     args = parser.parse_args()
-    run_camera_server(args.ignore_local)
+    run_camera_server(args.ns_host, args.ignore_local)

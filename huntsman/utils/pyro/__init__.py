@@ -112,7 +112,7 @@ def run_name_server(host=None, port=None, autoclean=0):
         print("Pyro name server {} already running! Exiting...".format(name_server))
 
 
-def run_camera_server(ignore_local):
+def run_camera_server(args.ns_host, ignore_local):
     """
     Runs a Pyro camera server.
 
@@ -134,7 +134,7 @@ def run_camera_server(ignore_local):
 
     with Pyro4.Daemon(host=host, port=port) as daemon:
         try:
-            name_server = Pyro4.locateNS()
+            name_server = Pyro4.locateNS(host=ns_host)
         except errors.NamingError as err:
             warn('Failed to locate Pyro name server: {}'.format(err))
             exit(1)
