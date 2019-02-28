@@ -112,7 +112,7 @@ def run_name_server(host=None, port=None, autoclean=0):
         print("Pyro name server {} already running! Exiting...".format(name_server))
 
 
-def run_camera_server(args.ns_host, ignore_local):
+def run_camera_server(ns_host, ignore_local):
     """
     Runs a Pyro camera server.
 
