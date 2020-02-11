@@ -249,7 +249,6 @@ def test_pyro_camera(config, camera_server):
     assert obs.cameras['camera.simulator.001'].is_connected
 
 
-@pytest.mark.skip
 def test_run_wait_until_safe(observatory, cmd_publisher, msg_subscriber):
     os.environ['POCSTIME'] = '2016-09-09 10:00:00'
 
@@ -350,7 +349,7 @@ def test_run_no_targets_and_exit(pocs):
     pocs.run(exit_when_done=True, run_once=True)
     assert pocs.state == 'sleeping'
 
-@pytest.mark.skip
+
 def test_run(pocs):
     os.environ['POCSTIME'] = '2016-09-09 10:00:00'
     pocs.config['simulator'] = hardware.get_all_names()
